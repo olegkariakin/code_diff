@@ -16,6 +16,7 @@
         <module>storage</module>
         <module>idea_ui</module>
         <module>jms_integration</module>
+        <module>algo</module>
     </modules>
 
     <!-- common dependencies for all projects -->
