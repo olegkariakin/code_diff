@@ -1,3 +1,5 @@
+package general;
+
 /**
  * User: Oleg_Kariakin
  * Date: 3/22/16
