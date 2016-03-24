@@ -4,8 +4,10 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import java.util.Map;
+import java.util.TreeMap;
+
+import static org.junit.Assert.*;
 
 /**
  * User: Oleg_Kariakin
@@ -92,6 +94,64 @@ public class SortUtilTest {
         assertTrue(SortUtil.isDescending(sortedDescArray));
         assertFalse(SortUtil.isDescending(sortedAscArray));
         assertFalse(SortUtil.isDescending(shuffledArray));
+    }
+
+    //array equals ignore order tests
+    @Test
+    public void testAreEqualsIgnoreOrderInitialEmpty() throws Exception {
+        thrown.expect(IllegalArgumentException.class);
+        SortUtil.areEqualsIgnoreOrder(new int[]{}, new int[]{});
+    }
+
+    @Test
+    public void testAreEqualsIgnoreOrderInitialNull() throws Exception {
+        thrown.expect(IllegalArgumentException.class);
+        SortUtil.areEqualsIgnoreOrder(null, new int[]{});
+    }
+
+    @Test
+    public void testAreEqualsIgnoreOrderResultedEmpty() throws Exception {
+        thrown.expect(IllegalArgumentException.class);
+        SortUtil.areEqualsIgnoreOrder(new int[]{1,2,3}, new int[]{});
+    }
+
+    @Test
+    public void testAreEqualsIgnoreOrderResultedNull() throws Exception {
+        thrown.expect(IllegalArgumentException.class);
+        SortUtil.areEqualsIgnoreOrder(new int[]{1,2,3}, null);
+    }
+
+    @Test
+    public void testAreEqualsIgnoreOrder() throws Exception {
+        //given
+        int[] initial =  new int[]{5,1,3,2,3,6,9};
+        int[] resulted = new int[]{1,2,3,3,5,6,9};
+
+        //when && expect
+        assertTrue(SortUtil.areEqualsIgnoreOrder(initial, resulted));
+    }
+
+    //calculate elements count tests
+    @Test
+    public void testCalculateElementsCount() throws Exception {
+        //given
+        int[] initialArray = new int[]{3, 2, 1, 3, 2, 1, 3, 0, 1000, -100, 10, 2, 3, 1};
+        Map<Integer, Integer> expectedCounts = new TreeMap<Integer, Integer>();
+        expectedCounts.put(-100, 1);
+        expectedCounts.put(0, 1);
+        expectedCounts.put(1, 3);
+        expectedCounts.put(2, 3);
+        expectedCounts.put(3, 4);
+        expectedCounts.put(10, 1);
+        expectedCounts.put(1000, 1);
+
+        //when
+        Map<Integer, Integer> resultedCounts = SortUtil.calculateElementsCount(initialArray);
+
+        //expect
+        assertEquals(expectedCounts.keySet(), resultedCounts.keySet());
+        assertEquals(expectedCounts.entrySet(), resultedCounts.entrySet());
+        assertEquals(expectedCounts, resultedCounts);
     }
 
 }
