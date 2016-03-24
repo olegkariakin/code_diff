@@ -16,10 +16,17 @@ public class SortUtilTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
+    //shuffled tests
     @Test
     public void testIsShuffledEmpty() throws Exception {
         thrown.expect(IllegalArgumentException.class);
         SortUtil.isShuffled(new int[]{});
+    }
+
+    @Test
+    public void testIsShuffledNull() throws Exception {
+        thrown.expect(IllegalArgumentException.class);
+        SortUtil.isShuffled(null);
     }
 
     @Test
@@ -35,6 +42,19 @@ public class SortUtilTest {
         assertTrue(SortUtil.isShuffled(shuffledArray));
     }
 
+    //ascending tests
+    @Test
+    public void testIsAscendingEmpty() throws Exception {
+        thrown.expect(IllegalArgumentException.class);
+        SortUtil.isAscending(new int[]{});
+    }
+
+    @Test
+    public void testIsAscendingNull() throws Exception {
+        thrown.expect(IllegalArgumentException.class);
+        SortUtil.isAscending(null);
+    }
+
     @Test
     public void testIsAscending() throws Exception {
         //given
@@ -46,6 +66,19 @@ public class SortUtilTest {
         assertTrue(SortUtil.isAscending(sortedAscArray));
         assertFalse(SortUtil.isAscending(sortDescArray));
         assertFalse(SortUtil.isAscending(shuffledArray));
+    }
+
+    //descending tests
+    @Test
+    public void testIsDescendingEmpty() throws Exception {
+        thrown.expect(IllegalArgumentException.class);
+        SortUtil.isDescending(new int[]{});
+    }
+
+    @Test
+    public void testIsDescendingNull() throws Exception {
+        thrown.expect(IllegalArgumentException.class);
+        SortUtil.isDescending(null);
     }
 
     @Test
@@ -60,4 +93,5 @@ public class SortUtilTest {
         assertFalse(SortUtil.isDescending(sortedAscArray));
         assertFalse(SortUtil.isDescending(shuffledArray));
     }
+
 }
