@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import sort.BubbleSort;
 
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -30,19 +30,14 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void testSearchEven() throws Exception {
-        //when && expect
-        assertTrue(BinarySearch.search(BubbleSort.sort(new int[]{3, 45, 8, 0, 6, 8, -3}, true), 8));
-        assertTrue(BinarySearch.search(BubbleSort.sort(new int[]{45}, true), 45));
-        assertTrue(BinarySearch.search(BubbleSort.sort(new int[]{45}, true), -19));
-    }
+    public void testSearchAscending() throws Exception {
+        //given
+        int[] ascArray = BubbleSort.sort(new int[]{8, 15, -3, 14, 6, 19, 3, 10}, true);
+        int key = 3;
+        int expectedKeyIndex = 1;
 
-    @Test
-    public void testSearchOdd() throws Exception {
         //when && expect
-        assertTrue(BinarySearch.search(BubbleSort.sort(new int[]{3, 45, 8, 0, 6, 8, -3, 9, 18, -1}, true), 0));
-        assertTrue(BinarySearch.search(BubbleSort.sort(new int[]{3, 0}, true), 3));
-        assertFalse(BinarySearch.search(BubbleSort.sort(new int[]{3, 0}, true), 45));
+        assertEquals(expectedKeyIndex, BinarySearch.search(ascArray, key));
     }
 
 }

@@ -15,8 +15,10 @@ public class BinarySearch {
      * @param key   the key to search
      *
      * @throws IllegalArgumentException
+     *
+     * @return index of the key element or -1 if not found
      */
-    public static boolean search(int[] array, int key) throws IllegalArgumentException {
+    public static int search(int[] array, int key) throws IllegalArgumentException {
         if (array == null || array.length == 0) {
             throw new IllegalArgumentException("The array can't be null or empty");
         }
@@ -24,17 +26,23 @@ public class BinarySearch {
             throw new IllegalArgumentException("Binary search works only for pre-sorted arrays");
         }
 
-        int end = array.length;
-        for (int i = 0; ;) {
-            int mid = (i + end) / 2;
-            if (key == array[mid]) {
-                return true;
-            } else if (key < array[mid]) {
-                end = mid + array.length % 2;
+        int low = 0;
+        int high = array.length - 1;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            int midVal = array[mid];
+
+            if (midVal < key) {
+                low = mid + 1;
+            } else if (midVal > key) {
+                high = mid - 1;
             } else {
-                i = mid + array.length % 2;
+                return mid;
             }
         }
+
+        return -1;
     }
 
 }
