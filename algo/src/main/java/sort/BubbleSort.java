@@ -4,10 +4,8 @@ package sort;
  * User: Oleg_Kariakin
  * Date: 3/24/16
  */
-//TODO - create an interface for sort for further implementations
 //TODO - create generic implementation to extend int[] to other Number values
-//TODO - create factory for different implementations of sorting
-public class BubbleSort {
+public class BubbleSort implements Sort {
 
     /**
      * Bubble sort - have n^2, shouldn't be used
@@ -16,7 +14,8 @@ public class BubbleSort {
      * @param ascending   - true, false - descending
      * @throws IllegalArgumentException
      */
-    public static int[] sort(int[] arrayToSort, boolean ascending) throws IllegalArgumentException {
+    @Override
+    public int[] sort(int[] arrayToSort, boolean ascending) throws IllegalArgumentException {
         if (arrayToSort == null || arrayToSort.length == 0) {
             throw new IllegalArgumentException();
         }
@@ -43,5 +42,4 @@ public class BubbleSort {
         array[first] = array[second];
         array[second] = buf;
     }
-
 }

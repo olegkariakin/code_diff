@@ -1,5 +1,7 @@
 package sort;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -13,19 +15,26 @@ import static org.junit.Assert.assertTrue;
  */
 public class BubbleSortTest {
 
+    private Sort bubble;
+
+    @Before
+    public void setUp() throws Exception {
+        bubble = SortFactory.getInstance(SortFactory.SortAlgo.BUBBLE);
+    }
+
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void testSortNull() throws Exception {
         thrown.expect(IllegalArgumentException.class);
-        BubbleSort.sort(null, true);
+        bubble.sort(null, true);
     }
 
     @Test
     public void testSortEmpty() throws Exception {
         thrown.expect(IllegalArgumentException.class);
-        BubbleSort.sort(new int[]{}, true);
+        bubble.sort(new int[]{}, true);
     }
 
     @Test
@@ -37,7 +46,7 @@ public class BubbleSortTest {
         assertFalse(SortUtil.isDescending(initial));
 
         //when
-        int[] result = BubbleSort.sort(initial, true);
+        int[] result = bubble.sort(initial, true);
 
         //expect
         assertTrue(SortUtil.isAscending(result));
@@ -55,13 +64,18 @@ public class BubbleSortTest {
         assertFalse(SortUtil.isDescending(initial));
 
         //when
-        int[] result = BubbleSort.sort(initial, false);
+        int[] result = bubble.sort(initial, false);
 
         //expect
         assertTrue(SortUtil.isDescending(result));
         assertTrue(SortUtil.areEqualsIgnoreOrder(initial, result));
         assertFalse(SortUtil.isAscending(result));
         assertFalse(SortUtil.isShuffled(result));
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        bubble = null;
     }
 
 }

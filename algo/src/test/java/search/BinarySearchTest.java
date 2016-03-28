@@ -4,9 +4,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import sort.BubbleSort;
+import sort.SortFactory;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 /**
  * User: Oleg_Kariakin
@@ -32,7 +32,8 @@ public class BinarySearchTest {
     @Test
     public void testSearchAscending() throws Exception {
         //given
-        int[] ascArray = BubbleSort.sort(new int[]{8, 15, -3, 14, 6, 19, 3, 10}, true);
+        int[] ascArray = SortFactory.getInstance(SortFactory.SortAlgo.BUBBLE).
+                sort(new int[]{8, 15, -3, 14, 6, 19, 3, 10}, true);
         int key = 3;
         int expectedKeyIndex = 1;
 
