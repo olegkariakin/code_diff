@@ -10,7 +10,7 @@ public class Fibonacci {
 
     /**
      * @throws IllegalArgumentException in case fibonacci is negative or zero
-     * */
+     */
     public static long fibonacciLoop(int n) throws IllegalArgumentException {
         if (n <= 0) {
             throw new IllegalArgumentException("fibonacci can't be negative or zero");
@@ -34,8 +34,9 @@ public class Fibonacci {
     /**
      * BE ADVISED - extremely slow for amounts 40+ !!!
      * NOT RECOMMENDED TO USE
+     *
      * @throws IllegalArgumentException in case fibonacci is negative or zero
-     * */
+     */
     public static long fibonacciRecursion(int n) throws IllegalArgumentException {
         if (n <= 0) {
             throw new IllegalArgumentException("fibonacci can't be negative or zero");
@@ -49,6 +50,7 @@ public class Fibonacci {
 
     /**
      * Works fine for extremely large fibonacci values
+     *
      * @throws IllegalArgumentException in case fibonacci is negative or zero
      */
     public static BigInteger fibonacciExtreme(int n) throws IllegalArgumentException {

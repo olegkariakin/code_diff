@@ -3,7 +3,6 @@ package search;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import sort.BubbleSort;
 import sort.SortFactory;
 
 import static org.junit.Assert.assertEquals;

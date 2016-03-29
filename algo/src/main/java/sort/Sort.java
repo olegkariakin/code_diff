@@ -3,7 +3,7 @@ package sort;
 /**
  * Date: 3/28/16
  * Time: 1:19 PM
- *
+ * <p/>
  * Specifies sort interface
  */
 public interface Sort {

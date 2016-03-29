@@ -12,8 +12,8 @@ public class SortUtil {
 
     /**
      * Verifies if the given array is shuffled.
-     * @param shuffledArray - array with size > 0 to be checked for sort order
      *
+     * @param shuffledArray - array with size > 0 to be checked for sort order
      * @throws IllegalArgumentException
      */
     public static boolean isShuffled(int[] shuffledArray) throws IllegalArgumentException {
@@ -26,15 +26,15 @@ public class SortUtil {
         boolean isDescending = isDescending(shuffledArray);
 
         //check descending
-        return ! (isAscending || isDescending);
+        return !(isAscending || isDescending);
     }
 
     /**
      * Checks sort order of the array to be ascending
-     * @param array - array with size > 0 to be check to be sorted in ascending order
      *
+     * @param array - array with size > 0 to be check to be sorted in ascending order
      * @throws IllegalArgumentException
-     * */
+     */
     public static boolean isAscending(int[] array) throws IllegalArgumentException {
         if (array == null || array.length == 0) {
             throw new IllegalArgumentException("Array is null or empty");
@@ -49,10 +49,10 @@ public class SortUtil {
 
     /**
      * Checks sort order of the array to be descending
-     * @param array - array with size > 0 to be checked to be sorted in descending order
      *
+     * @param array - array with size > 0 to be checked to be sorted in descending order
      * @throws IllegalArgumentException
-     * */
+     */
     public static boolean isDescending(int[] array) {
         if (array == null || array.length == 0) {
             throw new IllegalArgumentException("Array is null or empty");
@@ -68,11 +68,10 @@ public class SortUtil {
     /**
      * Verifies that two non-null arrays of size > 0 have the same set of elements.
      *
-     * @param initial - an initial array
+     * @param initial  - an initial array
      * @param resulted - a sorted array
-     *
      * @throws IllegalArgumentException
-     * */
+     */
     //TODO create or reuse validation annotation
     public static boolean areEqualsIgnoreOrder(int[] initial, int resulted[]) throws IllegalArgumentException {
         //1. perform initial validation

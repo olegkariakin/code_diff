@@ -32,7 +32,7 @@ public class ShuffleBasicTest {
     @Test
     public void testShuffle() throws Exception {
         //given
-        int[] initial = new int[]{-3,-3,-3, -2,-2,-2, -1, 0, 0, 1, 1, 1, 2, 3, 4, 4, 4, 4, 4};
+        int[] initial = new int[]{-3, -3, -3, -2, -2, -2, -1, 0, 0, 1, 1, 1, 2, 3, 4, 4, 4, 4, 4};
 
         //when
         int[] result = ShuffleBasic.shuffle(initial);

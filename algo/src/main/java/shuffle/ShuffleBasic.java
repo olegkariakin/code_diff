@@ -3,7 +3,7 @@ package shuffle;
 /**
  * User: Oleg_Kariakin
  * Date: 3/24/16
- *
+ * <p/>
  * Very basic shuffle algorithm using Math.random - that came to my mind.
  * I guess there should be a better way to shuffle an array
  */

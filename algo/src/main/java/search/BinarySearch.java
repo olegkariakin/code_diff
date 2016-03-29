@@ -13,10 +13,8 @@ public class BinarySearch {
      *
      * @param array the sortedArray
      * @param key   the key to search
-     *
-     * @throws IllegalArgumentException
-     *
      * @return index of the key element or -1 if not found
+     * @throws IllegalArgumentException
      */
     public static int search(int[] array, int key) throws IllegalArgumentException {
         if (array == null || array.length == 0) {

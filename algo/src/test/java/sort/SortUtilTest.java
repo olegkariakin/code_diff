@@ -112,20 +112,20 @@ public class SortUtilTest {
     @Test
     public void testAreEqualsIgnoreOrderResultedEmpty() throws Exception {
         thrown.expect(IllegalArgumentException.class);
-        SortUtil.areEqualsIgnoreOrder(new int[]{1,2,3}, new int[]{});
+        SortUtil.areEqualsIgnoreOrder(new int[]{1, 2, 3}, new int[]{});
     }
 
     @Test
     public void testAreEqualsIgnoreOrderResultedNull() throws Exception {
         thrown.expect(IllegalArgumentException.class);
-        SortUtil.areEqualsIgnoreOrder(new int[]{1,2,3}, null);
+        SortUtil.areEqualsIgnoreOrder(new int[]{1, 2, 3}, null);
     }
 
     @Test
     public void testAreEqualsIgnoreOrder() throws Exception {
         //given
-        int[] initial =  new int[]{5,1,3,2,3,6,9};
-        int[] resulted = new int[]{1,2,3,3,5,6,9};
+        int[] initial = new int[]{5, 1, 3, 2, 3, 6, 9};
+        int[] resulted = new int[]{1, 2, 3, 3, 5, 6, 9};
 
         //when && expect
         assertTrue(SortUtil.areEqualsIgnoreOrder(initial, resulted));
